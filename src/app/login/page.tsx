@@ -59,7 +59,7 @@ export default function LoginPage() {
               Email
             </label>
             <input
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:outline-none"
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:outline-none text-black"
               type="email"
               id="email"
               value={user.email}
@@ -76,7 +76,7 @@ export default function LoginPage() {
               Password
             </label>
             <input
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:outline-none"
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:outline-none text-black"
               type="password"
               id="password"
               value={user.password}
@@ -108,6 +108,15 @@ export default function LoginPage() {
             className="text-indigo-600 font-medium hover:underline"
           >
             Sign up here
+          </Link>
+        </p>
+        <p className="mt-4 text-center text-sm text-gray-600">
+          Forgot Password?{" "}
+          <Link
+            href="/forgotpassword"
+            className="text-indigo-600 font-medium hover:underline"
+          >
+            click here
           </Link>
         </p>
       </div>
