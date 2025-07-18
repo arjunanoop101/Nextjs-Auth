@@ -2,21 +2,23 @@ import { connect } from "@/dbConfig/dbConfig";
 import User from "@/models/userModel";
 import { NextResponse, NextRequest } from "next/server";
 import bcryptjs from "bcryptjs";
-import { error } from "console";
 import jwt from "jsonwebtoken";
 
+//database connection
 connect();
+
+// login route defined here
 
 export async function POST(request: NextRequest) {
   try {
     const reqBody = await request.json();
     const { email, password } = reqBody;
     console.log(reqBody);
-    //check if user already exists
+    //check if user exists
     const user = await User.findOne({ email });
     if (!user) {
       return NextResponse.json(
-        { error: "User already exists" },
+        { error: "User does not exist" },
         { status: 400 }
       );
     }
