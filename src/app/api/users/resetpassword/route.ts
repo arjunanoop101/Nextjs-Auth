@@ -10,8 +10,7 @@ export async function POST(request: NextRequest) {
   try {
     const { token, password } = await request.json();
 
-    // const hashedToken = crypto.createHash("sha256").update(token).digest("hex");
-
+    // searching for user with token passed from the url
     const user = await User.findOne({
       forgotPasswordToken: token,
       forgotPasswordTokenExpiry: { $gt: Date.now() },
@@ -24,6 +23,7 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    // hash the new password of the user and save
     const salt = await bcryptjs.genSalt(10);
     user.password = await bcryptjs.hash(password, salt);
     user.forgotPasswordToken = undefined;

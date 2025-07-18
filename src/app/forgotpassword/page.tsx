@@ -3,6 +3,7 @@ import { useState } from "react";
 import axios from "axios";
 import toast from "react-hot-toast";
 
+// forgot password page
 export default function ForgotPasswordPage() {
   const [email, setEmail] = useState("");
 

@@ -5,6 +5,8 @@ import { connect } from "@/dbConfig/dbConfig";
 import User from "@/models/userModel";
 
 connect();
+
+//route to get user details
 export async function GET(request: NextRequest) {
   try {
     const userId = await getDataFromToken(request);
